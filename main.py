@@ -13,6 +13,7 @@ from annual_premium import annual_premium
 from check_death_probabilities_sum import check_death_probabilities_sum
 from build_results_table import build_results_table
 from plot_survival_curve import plot_survival_curve
+from plot_death_probability_by_year import plot_death_probability_by_year
 
 synthetic_table = load_mortality_table("mortality_table.csv")
 real_table_male = load_mortality_table("mortality_table_real_male.csv")
@@ -42,3 +43,4 @@ print("Real Results Table (Female):")
 print(results_real_female)
 
 plot_survival_curve(tables_dict, start_age=30)
+plot_death_probability_by_year(tables_dict, start_age=30)
