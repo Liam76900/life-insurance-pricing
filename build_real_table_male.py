@@ -32,7 +32,6 @@ qx_male = [
 assert len(ages) == len(qx_male), "ages and qx_male must be the same length"
 
 mortality_table = pd.DataFrame({'age': ages, 'qx': qx_male})
-mortality_table.to_csv('mortality_table_real.csv', index=False)
+mortality_table.to_csv('mortality_table_real_male.csv', index=False)
 
-print("mortality_table_real.csv created successfully")
-print(mortality_table[mortality_table['age'].isin([30, 40, 50, 60, 70, 80, 90, 100])])
+print("mortality_table_real_male.csv created successfully")
