@@ -14,6 +14,7 @@ from check_death_probabilities_sum import check_death_probabilities_sum
 from build_results_table import build_results_table
 from plot_survival_curve import plot_survival_curve
 from plot_death_probability_by_year import plot_death_probability_by_year
+from plot_premium_vs_age import plot_premium_vs_age
 
 synthetic_table = load_mortality_table("mortality_table.csv")
 real_table_male = load_mortality_table("mortality_table_real_male.csv")
@@ -33,6 +34,12 @@ tables_dict = {
     'Real (Female)': real_table_female
 }
 
+results_dict = {
+    'Synthetic': results_synthetic,
+    'Real (Male)': results_real_male,
+    'Real (Female)': results_real_female
+}
+
 print("Synthetic Results Table:")
 print(results_synthetic)
 
@@ -44,3 +51,4 @@ print(results_real_female)
 
 plot_survival_curve(tables_dict, start_age=30)
 plot_death_probability_by_year(tables_dict, start_age=30)
+plot_premium_vs_age(results_dict)
