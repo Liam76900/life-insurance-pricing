@@ -232,6 +232,8 @@ Real Results Table (Female):
 
 ## Validation & Results
 
+**Death probability sum check: Synthetic vs. Real (Male/Female) by age**
+
 | Age | Synthetic | Real (Male) | Real (Female) |
 |-----|-----------|-------------|----------------|
 | 20  | 0.994395  | 0.999984    | 0.999907       |
@@ -249,7 +251,20 @@ The survival curve confirms that the real male mortality is consistently highest
 
 ![Death Probability by Year](outputs/death_probability_by_year.png)
 
-
+There is the distinct hump-shape and this is due to the qx increasing with age as the older you get the higher chance of death, however, the pool of people alive as the age increases shrinks so there is fewer people to contribute to that year's death count. The rising qx at the earlier years cause the initial increasing shape before it cannot increase it no longer due to the shrink of the pool of people that are alive. The synthetic curve is also flatter due to the qx values gorwing more gently than the real data so a larger population of peaople survives into the later years, which then spreads the death-probability mass out over a wider range rahter than concentrating it into a sharper peak. This, therefore, shows how the synthetic table underestimating risk shows up in practice.
 
 ![Annual Premium vs Age](outputs/premium_vs_age.png)
 
+This shows an accelerating curve as annual premium increases with age and this is because as age increases the death-probability rises roughly exponentially and the fair price of insuring that risk also acceleratingly rises. For example, a 20 year gap between 30-50 adds much less to the premium than a gap from 70 to 90 as the risk itself is growing much larger and therefore the fair price is growing larger as well. This plot also brings the whole idea together as the other plots help define the mechanics of the project this plot shows how the mechanics of the project help to answer our question of how annual premium interacts with them. The difference between the male and female curves is answered by noticing how the male qx values are consistently larger than the female qx values, therefore, the risk increases and, therefore, the expected cost to the insurer increases. The synthetic curve sits below both curves due to the limitation of the approximation not being able to capture the complexity of the real qx values. This is due to, for example, the synthetic table having qx values that grow slower as age increases which is definitely not the case.
+
+**Synthetic vs. Real (age 30, $100,000 payout):**
+
+| Table | Annual Premium |
+|-------|-----------------|
+| Synthetic | $825.46 |
+| Real (Male) | $1,178.21 |
+| Real (Female) | $946.05 |
+
+## References
+
+- [SSA 2021 Period Life Table](https://www.ssa.gov/oact/STATS/table4c6_2021_TR2024.html)
